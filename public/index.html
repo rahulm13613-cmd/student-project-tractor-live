@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,37 +16,42 @@
     </header>
 
     <section aria-labelledby="form-title">
-      <h2 id="form-title">Add a project</h2>
+      <h2 id="form-title">Add or Edit a Project</h2>
+
       <form id="project-form">
         <div>
           <label for="name">Project name</label>
-          <input id="name" name="name" required maxlength="80"
-                 placeholder="Example: IoT Monitor">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            maxlength="80"
+          >
         </div>
 
         <div>
-          <label for="status">Status</label>
+          <label for="status">Project status</label>
           <select id="status" name="status">
-            <option>Planned</option>
-            <option>In Progress</option>
-            <option>Completed</option>
+            <option value="Planned">Planned</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
           </select>
         </div>
 
-        <div>
-          <button id="save-button" type="submit">Add project</button>
-          <button id="cancel-button" type="button" hidden>Cancel edit</button>
-        </div>
+        <button id="save-button" type="submit">Save Project</button>
+        <button id="cancel-button" type="button" hidden>Cancel</button>
       </form>
+
+      <p id="message" role="status" aria-live="polite"></p>
     </section>
 
-    <p id="message" role="status" aria-live="polite"></p>
-
     <section aria-labelledby="list-title">
-      <h2 id="list-title">My projects</h2>
-      <p id="empty-state">No projects yet. Add your first idea.</p>
+      <h2 id="list-title">Projects</h2>
+      <p id="empty-state">No projects yet.</p>
       <ul id="project-list"></ul>
     </section>
   </main>
 </body>
 </html>
+```
