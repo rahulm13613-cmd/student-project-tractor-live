@@ -1,128 +1,198 @@
+
+/* Base styles */
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: system-ui, sans-serif;
   margin: 0;
-  padding: 32px 16px;
-  background-color: #f1f5f9;
-  color: #1e293b;
+  padding: 32px 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 16px;
   line-height: 1.6;
+  color: #243047;
+  background-color: #f4f7fb;
 }
 
+/* Main page layout */
 main {
-  max-width: 800px;
+  width: 100%;
+  max-width: 760px;
   margin: 0 auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border: 1px solid #e1e7ef;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(31, 45, 61, 0.06);
 }
 
+/* Page introduction */
 header {
-  background-color: #1d4ed8;
-  color: white;
-  padding: 28px;
-  border-radius: 12px;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 h1 {
-  margin-top: 0;
-  line-height: 1.2;
+  margin: 0 0 8px;
+  color: #183153;
+  font-size: 2rem;
+  line-height: 1.25;
 }
 
 header p {
-  margin-bottom: 0;
+  margin: 0;
+  color: #58677d;
 }
 
+/* Sections and headings */
 section {
-  background-color: white;
-  padding: 24px;
-  border-radius: 12px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 28px;
 }
 
 h2 {
-  margin-top: 0;
-  line-height: 1.3;
+  margin: 0 0 18px;
+  color: #243b5a;
+  font-size: 1.35rem;
+  line-height: 1.35;
 }
 
-form {
+/* Form layout */
+#project-form {
   display: grid;
   gap: 20px;
 }
 
+#project-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
 label {
-  display: block;
+  color: #26374d;
   font-weight: 600;
-  margin-bottom: 8px;
 }
 
 input,
 select {
   display: block;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #cbd5e1;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #b8c4d3;
   border-radius: 6px;
+  background-color: #ffffff;
+  color: #243047;
   font: inherit;
-  background-color: white;
-  color: #1e293b;
 }
 
-input:focus,
-select:focus,
+input:hover,
+select:hover {
+  border-color: #7c91ac;
+}
+
+/* Buttons */
+button {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#save-button {
+  justify-self: start;
+  background-color: #155eef;
+  color: #ffffff;
+}
+
+#save-button:hover {
+  background-color: #104bc2;
+}
+
+#cancel-button {
+  justify-self: start;
+  background-color: #edf1f7;
+  color: #243047;
+  border-color: #cbd5e1;
+}
+
+#cancel-button:hover {
+  background-color: #dfe7f1;
+}
+
+/* Preserve the native hidden behavior */
+[hidden] {
+  display: none !important;
+}
+
+/* Keyboard focus */
+input:focus-visible,
+select:focus-visible,
 button:focus-visible {
-  outline: 3px solid #93c5fd;
+  outline: 3px solid #f59e0b;
   outline-offset: 3px;
 }
 
-button {
-  background-color: #2563eb;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font: inherit;
-  font-weight: 600;
-}
-
-button:hover {
-  background-color: #1d4ed8;
-}
-
-button[hidden] {
-  display: none;
-}
-
+/* Status message */
 #message {
-  color: #166534;
-  font-weight: 600;
+  min-height: 0;
+  margin: 14px 0 0;
+  color: #315c43;
+  overflow-wrap: anywhere;
+}
+
+/* Empty state and project list */
+#empty-state {
+  margin: 0;
+  padding: 16px;
+  color: #58677d;
+  background-color: #f7f9fc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
 }
 
 #project-list {
+  margin: 0;
   padding-left: 24px;
+  overflow-wrap: anywhere;
 }
 
-#empty-state {
-  color: #64748b;
+#project-list:empty {
+  display: none;
 }
 
-@media (max-width: 560px) {
+/* Smaller screens */
+@media (max-width: 559px) {
   body {
     padding: 16px 12px;
   }
 
-  header,
-  section {
-    padding: 20px;
+  main {
+    padding: 20px 16px;
+    border-radius: 8px;
+  }
+
+  header {
+    margin-bottom: 24px;
   }
 
   h1 {
     font-size: 1.7rem;
   }
 
-  button {
-    max-width: 100%;
+  section {
+    margin-top: 24px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  #save-button,
+  #cancel-button {
+    width: 100%;
   }
 }
